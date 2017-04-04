@@ -27,13 +27,13 @@ FusionEKF::FusionEKF() {
 	Hj_ = MatrixXd(3, 4);
 
 	// measurement covariance matrix - laser
-	R_laser_ << 2, 0,
-							0, 2;
+		R_laser_ << 0.0225, 0,
+								0, 0.0225;
 
-	// measurement covariance matrix - radar
-	R_radar_ << 0.1, 0, 0,
-							0, 0.001, 0,
-							0, 0, 0.1;
+		// measurement covariance matrix - radar
+		R_radar_ << 0.09, 0, 0,
+		        0, 0.0009, 0,
+				0, 0, 0.09;
 
 	H_laser_ << 1, 0, 0, 0,
 							0, 1, 0, 0;
@@ -102,8 +102,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	ekf_.F_(1, 3) = dt;
 
 	//set the process noise covariance matrix
-	float sigma_ax = 20.;
-	float sigma_ay = 20.;
+	float sigma_ax = 9.;
+	float sigma_ay = 9.;
 	ekf_.Q_ = MatrixXd(4, 4);
 	ekf_.Q_ << dt_4 / 4 * sigma_ax, 0, dt_3 / 2 * sigma_ax, 0,
 						 0, dt_4 / 4 * sigma_ay, 0, dt_3 / 2 * sigma_ay,
