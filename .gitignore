@@ -1,0 +1,19 @@
+# silly macOS
+.DS_Store
+
+# build files
+build/
+.project
+.cproject
+.settings
+
+
+# editor config
+.vscode/
+
+.pydevproject
+sample-laser-radar-measurement-data-1_output.txt
+sample-laser-radar-measurement-data-2_output.txt
+EKF.html
+*.csv
+*.csv#
