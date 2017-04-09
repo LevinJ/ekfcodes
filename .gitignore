@@ -6,6 +6,7 @@ build/
 .project
 .cproject
 .settings
+data/sample-laser-radar-measurement-data-2.txt
 
 
 # editor config
